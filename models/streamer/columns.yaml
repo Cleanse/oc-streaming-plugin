@@ -1,0 +1,9 @@
+# ===================================
+#  Column Definitions
+# ===================================
+
+columns:
+
+    user_name:
+        label: Streamer
+        searchable: true

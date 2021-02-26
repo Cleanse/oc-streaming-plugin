@@ -1,0 +1,6 @@
+1.0.0:
+  - Adding streamer database migration.
+  - add_streaming_table.php
+1.5.0:
+  - Added YouTube support.
+  - add_youtube_table.php

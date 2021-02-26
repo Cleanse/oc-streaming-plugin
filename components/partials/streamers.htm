@@ -1,0 +1,33 @@
+{% if streamers.count > 0 %}
+<ul class="list-unstyled">
+    {% for streamer in streamers %}
+    <li class="media mb-3">
+        <div class="media-body">
+            <a href="{{ streamer.stream_url }}"
+               title="{{ streamer.title }}" target="_blank"><h5 class="mt-0 mb-1">
+                {{ streamer.user_name|upper }}
+            </h5></a>
+            {% if streamer.live %}
+            <span class="badge badge-{{ streamer.streaming_platform }}"><img
+                    src="/plugins/cleanse/streaming/assets/images/{{ streamer.streaming_platform }}.png"
+                    class="stream-logo" valign="center"> LIVE</span>
+            <strong>{{ streamer.viewer_count }}</strong> Viewers
+            {% endif %}
+            <p>{{ streamer.title }}</p>
+        </div>
+        <a href="{{ streamer.stream_url }}" title="{{ streamer.user_name|upper }}: {{ streamer.title }}" target="_blank"
+           class="border border-{{ streamer.streaming_platform }}">
+            <img class="streamer-img-top"
+                 src="{{ streamer.stream_image }}">
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<blockquote class="blockquote text-center text-white">
+    <p class="mb-0">There are currently no streamers.</p>
+    <footer class="blockquote-footer">
+        Staff
+        <cite title="Source Title">Epic7PVP.com</cite></footer>
+</blockquote>
+{% endif %}

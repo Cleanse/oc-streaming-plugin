@@ -1,0 +1,33 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+fields:
+
+    streaming_platform:
+        label: Streaming Platform
+        span: left
+        type: dropdown
+        default: 1
+        options:
+            1: Twitch
+            2: YouTube
+
+    user_name:
+        label: Streamer's Display Name
+        span: left
+        placeholder: Streamer Name
+
+    user_id:
+        label: YouTube Channel ID
+        comment: 'REQUIRED FOR YOUTUBE!!! We need this:<br><img src="/plugins/cleanse/streaming/assets/images/YT_ChannelID.png" style="width: 100%;">'
+        commentHtml: true
+        trigger:
+            action: show
+            field: streaming_platform
+            condition: value[2]
+
+    activated:
+        label: Streamer Active?
+        type: checkbox
+        default: true

@@ -1,0 +1,16 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+name: Streamer
+form: ~/plugins/cleanse/streaming/models/streamer/fields.yaml
+modelClass: Cleanse\Streaming\Models\Streamer
+defaultRedirect: cleanse/streaming/streamers
+
+create:
+    redirect: cleanse/streaming/streamers/update/:id
+    redirectClose: cleanse/streaming/streamers
+
+update:
+    redirect: cleanse/streaming/streamers
+    redirectClose: cleanse/streaming/streamers
