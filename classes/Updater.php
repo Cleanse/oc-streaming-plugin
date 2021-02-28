@@ -78,7 +78,7 @@ class Updater
 
         foreach ($streamers['data'] as $streamer) {
             if ($query == strtolower($streamer['display_name'])) {
-                $this->updateStreamer([
+                $this->updateStreamersId([
                     'user_name' => $streamer['display_name'],
                     'user_id' => $streamer['id'],
                     'live' => $streamer['is_live']
@@ -86,6 +86,27 @@ class Updater
                 break;
             }
         }
+    }
+
+    public function updateStreamersId($data)
+    {
+        if (!isset($data['user_name'])) {
+            return null;
+        }
+
+        $streamer = Streamer::where('user_name', '=', $data['user_name'])->first();
+
+        if (!$streamer) {
+            return null;
+        }
+
+        foreach ($data as $key => $val) {
+            $streamer->$key = $val;
+        }
+
+        $streamer->save();
+
+        return $streamer;
     }
 
     final public function offlineStreamer($streamer)
