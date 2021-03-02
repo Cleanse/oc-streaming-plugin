@@ -68,7 +68,7 @@ class YouTube
             'live'         => 0,
             'title'        => '',
             'viewer_count' => 0,
-            'stream_url'   => '',
+            'stream_url'   => self::BASE_URI . $channelId,
             'stream_image' => ''
         ];
 
