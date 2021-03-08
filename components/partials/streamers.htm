@@ -17,8 +17,12 @@
         </div>
         <a href="{{ streamer.stream_url }}" title="{{ streamer.user_name|upper }}: {{ streamer.title }}" target="_blank"
            class="border border-{{ streamer.streaming_platform }}">
+            {% if streamer.live %}
             <img class="streamer-img-top"
                  src="{{ streamer.stream_image }}">
+            {% else %}
+            <span class="text-white d-inline-block p-1">OFFLINE.</span>
+            {% endif %}
         </a>
     </li>
     {% endfor %}
